@@ -1,0 +1,85 @@
+site_name: Matthew Smith — Engineering Portfolio
+site_url: https://Matthasus.github.io/Engineering-Portfolio/
+site_description: Engineering portfolio showcasing mechanical, electrical, and software projects.
+site_author: Matthew Smith
+
+repo_name: Matthasus/Engineering-Portfolio
+repo_url: https://github.com/Matthasus/Engineering-Portfolio
+
+theme:
+  name: material
+  palette:
+    # Dark mode (default)
+    - scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    # Light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs          # Top-level nav becomes tabs
+    - navigation.tabs.sticky   # Tabs stay visible when scrolling
+    - navigation.sections      # Group nav items into sections
+    - navigation.top           # "Back to top" button
+    - navigation.tracking      # URL updates as you scroll
+    - toc.integrate            # Table of contents in sidebar
+    - search.suggest
+    - search.highlight
+    - content.tabs.link        # Linkable content tabs
+    - content.code.copy        # Copy button on code blocks
+
+plugins:
+  - search
+  - glightbox:                 # Image zoom (requires pip install mkdocs-glightbox)
+      touchNavigation: true
+      loop: false
+      effect: zoom
+
+markdown_extensions:
+  - admonition                 # Callout boxes (note, warning, tip, etc.)
+  - pymdownx.details           # Collapsible sections
+  - pymdownx.superfences       # Code blocks inside tabs/admonitions
+  - pymdownx.tabbed:
+      alternate_style: true    # Material-style content tabs
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list                  # Add CSS classes to elements
+  - md_in_html                 # Markdown inside HTML blocks
+  - tables
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Projects:
+    - Project 01 — Robot Arm: projects/project-01.md
+    - Project 02 — CNC Router: projects/project-02.md
+    - Project 03 — RC Vehicle: projects/project-03.md
+    - Project 04 — PCB Design: projects/project-04.md
+    - Project 05 — 3D Printer Mod: projects/project-05.md
+    - Project 06 — FRC Robot: projects/project-06.md
+    - Project 07 — Simulation Tool: projects/project-07.md
+    - Project 08 — Weld Fixture: projects/project-08.md
+    - Project 09 — Autonomous System: projects/project-09.md
+    - Project 10 — Senior Capstone: projects/project-10.md
+  - Resume: resume.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Matthasus
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/yourprofile
+       #placeholder for linkedin URL
