@@ -1,0 +1,80 @@
+site_name: Matthew's Engineering Docs
+site_url: https://matthasus.github.io/Engineering-Portfolio/
+
+theme:
+  name: material
+  custom_dir: overrides          # only needed if you use template overrides later
+  palette:
+    - scheme: slate              # dark mode default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - content.tabs.link
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+plugins:
+  - search
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: none
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Projects:
+    - projects/index.md
+    - Project 01: projects/project-01.md
+    # - Project 02: projects/project-02.md
+    # - Project 03: projects/project-03.md
+    # - Project 04: projects/project-04.md
+    # - Project 05: projects/project-05.md
+    # - Project 06: projects/project-06.md
+    # - Project 07: projects/project-07.md
+    # - Project 08: projects/project-08.md
+    # - Project 09: projects/project-09.md
+    # - Project 10: projects/project-10.md
+    # - Resume: resume.md
