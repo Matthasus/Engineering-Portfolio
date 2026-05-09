@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name — Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- ── TOP NAV ─────────────────────────────────────────── -->
+  <header class="site-header">
+    <a class="site-logo" href="#top">YN</a>
+    <nav class="proj-nav" id="projNav">
+      <a href="#project-01">Robot Arm</a>
+      <a href="#project-02">CNC Router</a>
+      <a href="#project-03">RC Vehicle</a>
+      <a href="#project-04">PCB Design</a>
+      <a href="#project-05">3D Printer Mod</a>
+      <a href="#project-06">FRC Robot</a>
+      <a href="#project-07">Simulation Tool</a>
+      <a href="#project-08">Weld Fixture</a>
+    </nav>
+    <a class="resume-btn" href="resume.html">Resume</a>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <!-- mobile nav drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#project-01">Robot Arm</a>
+    <a href="#project-02">CNC Router</a>
+    <a href="#project-03">RC Vehicle</a>
+    <a href="#project-04">PCB Design</a>
+    <a href="#project-05">3D Printer Mod</a>
+    <a href="#project-06">FRC Robot</a>
+    <a href="#project-07">Simulation Tool</a>
+    <a href="#project-08">Weld Fixture</a>
+    <a href="resume.html">Resume</a>
+  </div>
+
+  <main id="top">
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-gallery">
+        <div class="slides" id="heroSlides">
+          <!-- Replace src with your own images -->
+          <div class="slide active" style="background-image:url('assets/images/hero/slide-01.jpg')"></div>
+          <div class="slide" style="background-image:url('assets/images/hero/slide-02.jpg')"></div>
+          <div class="slide" style="background-image:url('assets/images/hero/slide-03.jpg')"></div>
+          <div class="slide" style="background-image:url('assets/images/hero/slide-04.jpg')"></div>
+        </div>
+        <button class="arrow arrow-l" id="heroPrev">&#8249;</button>
+        <button class="arrow arrow-r" id="heroNext">&#8250;</button>
+        <div class="dots" id="heroDots"></div>
+      </div>
+
+      <div class="hero-bio">
+        <p class="eyebrow">Engineering Portfolio</p>
+        <h1>Your Name</h1>
+        <p class="tagline">Mechanical Engineer &middot; Designer &middot; Builder</p>
+        <p class="bio">
+          I'm a [Year] Mechanical Engineering student at [University], passionate about
+          robotics, precision manufacturing, and turning complex problems into elegant
+          physical systems. This portfolio documents projects I've designed, analyzed,
+          built, and tested — from competition robots to custom fabrication tooling.
+        </p>
+        <div class="bio-links">
+          <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+          <a href="resume.html" class="accent">Resume</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROJECTS ──────────────────────────────────────── -->
+
+    <section class="project" id="project-01" style="--bg:#1a2332">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-01/render-01.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-01/render-02.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-01/render-03.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">01</span>
+          <h2>Robot Arm</h2>
+          <p class="proj-sub">6-DOF Robotic Manipulator &middot; SolidWorks &middot; Arduino &middot; 2024</p>
+          <p class="proj-desc">Describe this project in a few sentences. What was the goal, what did you build, and what was your role? Keep it punchy and outcome-focused.</p>
+          <div class="tags">
+            <span>SolidWorks</span><span>MATLAB</span><span>Arduino</span><span>FEA</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>Jan – May 2024</span></div>
+            <div><label>Role</label><span>Lead Designer</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-02" style="--bg:#1a2a22">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-02/render-01.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-02/render-02.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">02</span>
+          <h2>CNC Router</h2>
+          <p class="proj-sub">3-Axis Router Build &middot; Fusion 360 &middot; GRBL &middot; 2023</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>Fusion 360</span><span>GRBL</span><span>Machining</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>Jun – Dec 2023</span></div>
+            <div><label>Role</label><span>Solo Build</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-03" style="--bg:#2a1a2a">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-03/render-01.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-03/render-02.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">03</span>
+          <h2>RC Vehicle</h2>
+          <p class="proj-sub">4WD Platform &middot; Custom Chassis &middot; 2023</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>CAD</span><span>3D Printing</span><span>Electronics</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>Mar – Aug 2023</span></div>
+            <div><label>Role</label><span>Solo Build</span></div>
+            <div><label>Status</label><span class="wip">In Progress</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-04" style="--bg:#2a2210">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-04/render-01.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">04</span>
+          <h2>PCB Design</h2>
+          <p class="proj-sub">Sensor Acquisition Board &middot; KiCad &middot; 2024</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>KiCad</span><span>Embedded C</span><span>Soldering</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>2024</span></div>
+            <div><label>Role</label><span>Solo</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-05" style="--bg:#142028">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-05/render-01.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">05</span>
+          <h2>3D Printer Mod</h2>
+          <p class="proj-sub">Motion System Upgrade &middot; Klipper &middot; 2023</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>Klipper</span><span>CAD</span><span>Wiring</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>2023</span></div>
+            <div><label>Role</label><span>Solo</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-06" style="--bg:#0f2a1a">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-06/render-01.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-06/render-02.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-06/render-03.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">06</span>
+          <h2>FRC Robot</h2>
+          <p class="proj-sub">FIRST Robotics Competition &middot; 2024 Season</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>SolidWorks</span><span>Machining</span><span>Teamwork</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>Jan – Apr 2024</span></div>
+            <div><label>Role</label><span>Mech Lead</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-07" style="--bg:#1e1a2e">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-07/render-01.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">07</span>
+          <h2>Simulation Tool</h2>
+          <p class="proj-sub">Dynamic System Simulation &middot; MATLAB &middot; Python &middot; 2024</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>MATLAB</span><span>Python</span><span>Simulink</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>2024</span></div>
+            <div><label>Role</label><span>Solo</span></div>
+            <div><label>Status</label><span class="wip">In Progress</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project" id="project-08" style="--bg:#2a1818">
+      <div class="proj-inner">
+        <div class="proj-slider">
+          <div class="proj-slides">
+            <div class="proj-slide active"><img src="assets/images/project-08/render-01.png" alt=""/></div>
+            <div class="proj-slide"><img src="assets/images/project-08/render-02.png" alt=""/></div>
+          </div>
+          <button class="arrow arrow-l">&#8249;</button>
+          <button class="arrow arrow-r">&#8250;</button>
+          <div class="dots"></div>
+        </div>
+        <div class="proj-info">
+          <span class="proj-num">08</span>
+          <h2>Weld Fixture</h2>
+          <p class="proj-sub">Precision Fixturing &middot; GD&amp;T &middot; Steel Fabrication &middot; 2023</p>
+          <p class="proj-desc">Describe this project in a few sentences.</p>
+          <div class="tags">
+            <span>GD&amp;T</span><span>Welding</span><span>SolidWorks</span>
+          </div>
+          <div class="meta">
+            <div><label>Timeline</label><span>2023</span></div>
+            <div><label>Role</label><span>Lead</span></div>
+            <div><label>Status</label><span class="complete">Complete</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Your Name &middot; <a href="mailto:you@email.com">you@email.com</a> &middot; <a href="https://github.com/yourusername" target="_blank">GitHub</a> &middot; <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
