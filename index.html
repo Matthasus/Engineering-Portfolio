@@ -1,52 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name — Engineering Portfolio</title>
+  <title>Matthew Smith — Engineering Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- ── TOP NAV ─────────────────────────────────────────── -->
   <header class="site-header">
-    <a class="site-logo" href="#top">YN</a>
+    <a class="site-logo" href="#top">MS</a>
     <nav class="proj-nav" id="projNav">
-      <a href="#project-01">Robot Arm</a>
-      <a href="#project-02">CNC Router</a>
-      <a href="#project-03">RC Vehicle</a>
-      <a href="#project-04">PCB Design</a>
-      <a href="#project-05">3D Printer Mod</a>
-      <a href="#project-06">FRC Robot</a>
-      <a href="#project-07">Simulation Tool</a>
-      <a href="#project-08">Weld Fixture</a>
+      <a href="#project-01">2026 FRC</a>
+      <a href="#project-02">2025 Offseason</a>
+      <a href="#project-03">2025 FRC</a>
+      <a href="#project-04">2025 FRC Subsystem</a>
+      <a href="#project-05">Pneumatic Swerve</a>
+      <a href="#project-06">Billet Keyboard</a>
+      <a href="#project-07">Outreach Bot</a>
+      <a href="#project-08">Stubbed Collector</a>
+      <a href="#project-09">2024 FRC</a>
+      <a href="#project-10">2023 Offseason</a>
+      <a href="#project-11">2023 FRC</a>
     </nav>
     <a class="resume-btn" href="resume.html">Resume</a>
     <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
   </header>
 
-  <!-- mobile nav drawer -->
   <div class="mobile-nav" id="mobileNav">
-    <a href="#project-01">Robot Arm</a>
-    <a href="#project-02">CNC Router</a>
-    <a href="#project-03">RC Vehicle</a>
-    <a href="#project-04">PCB Design</a>
-    <a href="#project-05">3D Printer Mod</a>
-    <a href="#project-06">FRC Robot</a>
-    <a href="#project-07">Simulation Tool</a>
-    <a href="#project-08">Weld Fixture</a>
+    <a href="#project-01">2026 FRC</a>
+    <a href="#project-02">2025 Offseason</a>
+    <a href="#project-03">2025 FRC</a>
+    <a href="#project-04">2025 FRC Subsystem</a>
+    <a href="#project-05">Pneumatic Swerve</a>
+    <a href="#project-06">Billet Keyboard</a>
+    <a href="#project-07">Outreach Bot</a>
+    <a href="#project-08">Stubbed Collector</a>
+    <a href="#project-09">2024 FRC</a>
+    <a href="#project-10">2023 Offseason</a>
+    <a href="#project-11">2023 FRC</a>
     <a href="resume.html">Resume</a>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose">&#10005;</button>
+    <button class="lb-arrow lb-prev" id="lbPrev">&#8249;</button>
+    <button class="lb-arrow lb-next" id="lbNext">&#8250;</button>
+    <div class="lb-img-wrap"><img id="lbImg" src="" alt=""/></div>
+    <div class="lb-counter" id="lbCounter"></div>
   </div>
 
   <main id="top">
 
-    <!-- ── HERO ──────────────────────────────────────────── -->
     <section class="hero">
       <div class="hero-gallery">
         <div class="slides" id="heroSlides">
-          <!-- Replace src with your own images -->
           <div class="slide active" style="background-image:url('assets/images/hero/slide-01.jpg')"></div>
           <div class="slide" style="background-image:url('assets/images/hero/slide-02.jpg')"></div>
           <div class="slide" style="background-image:url('assets/images/hero/slide-03.jpg')"></div>
@@ -56,13 +66,12 @@
         <button class="arrow arrow-r" id="heroNext">&#8250;</button>
         <div class="dots" id="heroDots"></div>
       </div>
-
       <div class="hero-bio">
         <p class="eyebrow">Engineering Portfolio</p>
-        <h1>Your Name</h1>
-        <p class="tagline">Mechanical Engineer &middot; Designer &middot; Builder</p>
+        <h1>Matthew Smith</h1>
+        <p class="tagline">Engineering Undeclared &middot; University of Washington &middot; 1st Year</p>
         <p class="bio">
-          I'm a [Year] Mechanical Engineering student at [University], passionate about
+          I'm a first-year Engineering student at the University of Washington, passionate about
           robotics, precision manufacturing, and turning complex problems into elegant
           physical systems. This portfolio documents projects I've designed, analyzed,
           built, and tested — from competition robots to custom fabrication tooling.
@@ -75,235 +84,317 @@
       </div>
     </section>
 
-    <!-- ── PROJECTS ──────────────────────────────────────── -->
+    <div class="page-body">
+      <div class="projects-col">
 
-    <section class="project" id="project-01" style="--bg:#1a2332">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-01/render-01.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-01/render-02.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-01/render-03.png" alt=""/></div>
+        <!-- 01 — 2026 FRC Robot -->
+        <section class="project" id="project-01" data-start="2026-01" data-end="2026-06">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-01">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Bearicade Mk2"><img src="assets/images/project-01/bearicade-mk2.png" alt="Bearicade Mk2"/></div>
+                  <div class="proj-slide" data-label="Bearodactyl Mk2"><img src="assets/images/project-01/bearodactyl-mk2.png" alt="Bearodactyl Mk2"/></div>
+                  <div class="proj-slide" data-label="SS V1"><img src="assets/images/project-01/ss-v1.png" alt="SS V1"/></div>
+                  <div class="proj-slide" data-label="SS V2"><img src="assets/images/project-01/ss-v2.png" alt="SS V2"/></div>
+                  <div class="proj-slide" data-label="Final"><img src="assets/images/project-01/final.png" alt="Final"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">01</span>
+              <h2>2026 FRC Robot</h2>
+              <p class="proj-sub"><em>Bearicade Mk2 &amp; Bearodactyl Mk2</em></p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>SolidWorks</span><span>FRC</span><span>Machining</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2026</span></div>
+                <div><label>Role</label><span>Mechanical Designer</span></div>
+              </div>
+            </div>
           </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">01</span>
-          <h2>Robot Arm</h2>
-          <p class="proj-sub">6-DOF Robotic Manipulator &middot; SolidWorks &middot; Arduino &middot; 2024</p>
-          <p class="proj-desc">Describe this project in a few sentences. What was the goal, what did you build, and what was your role? Keep it punchy and outcome-focused.</p>
-          <div class="tags">
-            <span>SolidWorks</span><span>MATLAB</span><span>Arduino</span><span>FEA</span>
+        </section>
+
+        <!-- 02 — 2025 Offseason -->
+        <section class="project" id="project-02" data-start="2025-06" data-end="2025-12">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-02">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Full View"><img src="assets/images/project-02/full-view.png" alt="Full View"/></div>
+                  <div class="proj-slide" data-label="Back View"><img src="assets/images/project-02/back-view.png" alt="Back View"/></div>
+                  <div class="proj-slide" data-label="Carriage"><img src="assets/images/project-02/carriage.png" alt="Carriage"/></div>
+                  <div class="proj-slide" data-label="Final"><img src="assets/images/project-02/final.png" alt="Final"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">02</span>
+              <h2>2025 Offseason</h2>
+              <p class="proj-sub"><em>Continuous UHMWPE Rope 3-Stage Elevator</em></p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>SolidWorks</span><span>Elevator</span><span>UHMWPE</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2025 Offseason</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
           </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>Jan – May 2024</span></div>
-            <div><label>Role</label><span>Lead Designer</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
+        </section>
+
+        <!-- 03 — 2025 FRC Robot -->
+        <section class="project" id="project-03" data-start="2025-01" data-end="2025-05">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-03">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Bearracuda"><img src="assets/images/project-03/bearracuda.png" alt="Bearracuda"/></div>
+                  <div class="proj-slide" data-label="Arm FV"><img src="assets/images/project-03/arm-fv.png" alt="Arm FV"/></div>
+                  <div class="proj-slide" data-label="Carriage FV"><img src="assets/images/project-03/carriage-fv.png" alt="Carriage FV"/></div>
+                  <div class="proj-slide" data-label="Carriage Powertrain"><img src="assets/images/project-03/carriage-powertrain.png" alt="Carriage Powertrain"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">03</span>
+              <h2>2025 FRC Robot</h2>
+              <p class="proj-sub"><em>Bearracuda</em> &middot; Coaxial CF-Arm &middot; External Continuous Belt 2-Stage Elevator &middot; Active Roller Climber</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>SolidWorks</span><span>FRC</span><span>Coaxial Arm</span><span>Elevator</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2025</span></div>
+                <div><label>Role</label><span>Mechanical Designer</span></div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
+
+        <!-- 04 — 2025 FRC Subsystems -->
+        <section class="project" id="project-04" data-start="2025-01" data-end="2025-05">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-04">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Elevator FV"><img src="assets/images/project-04/elevator-fv.png" alt="Elevator FV"/></div>
+                  <div class="proj-slide" data-label="Elevator BV"><img src="assets/images/project-04/elevator-bv.png" alt="Elevator BV"/></div>
+                  <div class="proj-slide" data-label="Climber FV"><img src="assets/images/project-04/climber-fv.png" alt="Climber FV"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">04</span>
+              <h2>2025 FRC Robot — Subsystems</h2>
+              <p class="proj-sub">External Continuous Belt 2-Stage Elevator &middot; Active Roller Climber</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Elevator</span><span>Climber</span><span>SolidWorks</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2025</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 05 — Pneumatic Swerve -->
+        <section class="project" id="project-05" data-start="2024-06" data-end="2024-12">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-05">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Full View"><img src="assets/images/project-05/full-view.png" alt="Full View"/></div>
+                  <div class="proj-slide" data-label="Powertrain"><img src="assets/images/project-05/powertrain.png" alt="Powertrain"/></div>
+                  <div class="proj-slide" data-label="Final"><img src="assets/images/project-05/final.png" alt="Final"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">05</span>
+              <h2>Pneumatic Tire Swerve Drive</h2>
+              <p class="proj-sub">2024 Offseason</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Swerve</span><span>Pneumatic</span><span>Drivetrain</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2024 Offseason</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 06 — Billet Keyboard -->
+        <section class="project" id="project-06" data-start="2024-06" data-end="2024-10">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-06">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Full View"><img src="assets/images/project-06/full-view.png" alt="Full View"/></div>
+                  <div class="proj-slide" data-label="In Progress"><img src="assets/images/project-06/in-progress.png" alt="In Progress"/></div>
+                  <div class="proj-slide" data-label="Final"><img src="assets/images/project-06/final.png" alt="Final"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">06</span>
+              <h2>Custom Aluminum Billet Housing 60% Keyboard</h2>
+              <p class="proj-sub">2024 Offseason</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Machining</span><span>Aluminum</span><span>CAD</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2024 Offseason</span></div>
+                <div><label>Role</label><span>Designer &amp; Builder</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 07 — Outreach Bot -->
+        <section class="project" id="project-07" data-start="2024-06" data-end="2024-09">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-07">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Full View"><img src="assets/images/project-07/full-view.png" alt="Full View"/></div>
+                  <div class="proj-slide" data-label="Chassis"><img src="assets/images/project-07/chassis.png" alt="Chassis"/></div>
+                  <div class="proj-slide" data-label="Superstructure"><img src="assets/images/project-07/superstructure.png" alt="Superstructure"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">07</span>
+              <h2>18&times;18&times;18 Mini-FTC Like Outreach Bot</h2>
+              <p class="proj-sub">2024 Offseason</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Outreach</span><span>FTC</span><span>SolidWorks</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2024 Offseason</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 08 — Stubbed Collector -->
+        <section class="project" id="project-08" data-start="2024-06" data-end="2024-10">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-08">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Full View"><img src="assets/images/project-08/full-view.png" alt="Full View"/></div>
+                  <div class="proj-slide" data-label="Test Video"><img src="assets/images/project-08/test-video.png" alt="Test Video"/></div>
+                  <div class="proj-slide" data-label="Chezy Champs"><img src="assets/images/project-08/chezy-champs.png" alt="Chezy Champs"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">08</span>
+              <h2>4-Roller Custom Dead-Axled Stubbed Collector</h2>
+              <p class="proj-sub">2024 Offseason</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Collector</span><span>Dead Axle</span><span>SolidWorks</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2024 Offseason</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 09 — 2024 FRC Robot -->
+        <section class="project" id="project-09" data-start="2024-01" data-end="2024-05">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-09">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Bearitone"><img src="assets/images/project-09/bearitone.png" alt="Bearitone"/></div>
+                  <div class="proj-slide" data-label="Climber FV"><img src="assets/images/project-09/climber-fv.png" alt="Climber FV"/></div>
+                  <div class="proj-slide" data-label="Amp Arm FV"><img src="assets/images/project-09/amp-arm-fv.png" alt="Amp Arm FV"/></div>
+                  <div class="proj-slide" data-label="Shooter FV"><img src="assets/images/project-09/shooter-fv.png" alt="Shooter FV"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">09</span>
+              <h2>2024 FRC Robot</h2>
+              <p class="proj-sub"><em>Bearitone</em> &middot; Linear Belted Climber &middot; Segregated Coaxial Arm &middot; Tilting Shooter</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>FRC</span><span>Climber</span><span>Coaxial Arm</span><span>Shooter</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2024</span></div>
+                <div><label>Role</label><span>Mechanical Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 — 2023 Offseason -->
+        <section class="project" id="project-10" data-start="2023-06" data-end="2023-12">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-10">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Roadcases"><img src="assets/images/project-10/roadcases.png" alt="Roadcases"/></div>
+                  <div class="proj-slide" data-label="Turreted Shooter"><img src="assets/images/project-10/turreted-shooter.png" alt="Turreted Shooter"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">10</span>
+              <h2>2023 Offseason</h2>
+              <p class="proj-sub">Pit Roadcases &middot; Practice Turreted Shooter</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>Roadcases</span><span>Shooter</span><span>SolidWorks</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2023 Offseason</span></div>
+                <div><label>Role</label><span>Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11 — 2023 FRC Robot -->
+        <section class="project" id="project-11" data-start="2023-01" data-end="2023-05">
+          <div class="proj-inner">
+            <div class="proj-left">
+              <div class="proj-slider" data-gallery="project-11">
+                <div class="view-tabs"></div>
+                <div class="proj-slides">
+                  <div class="proj-slide active" data-label="Polarity"><img src="assets/images/project-11/polarity.png" alt="Polarity"/></div>
+                  <div class="proj-slide" data-label="TJA FV"><img src="assets/images/project-11/tja-fv.png" alt="TJA FV"/></div>
+                  <div class="proj-slide" data-label="TJA Powertrain"><img src="assets/images/project-11/tja-powertrain.png" alt="TJA Powertrain"/></div>
+                  <div class="proj-slide" data-label="Prototyping"><img src="assets/images/project-11/prototyping.png" alt="Prototyping"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-info">
+              <span class="proj-num">11</span>
+              <h2>2023 FRC Robot</h2>
+              <p class="proj-sub"><em>Polarity</em> &middot; Triple Jointed Arm &middot; Prototype Endeffector</p>
+              <p class="proj-desc">Describe this project.</p>
+              <div class="tags"><span>FRC</span><span>Triple Jointed Arm</span><span>Prototyping</span></div>
+              <div class="meta">
+                <div><label>Season</label><span>2023</span></div>
+                <div><label>Role</label><span>Mechanical Designer</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </div>
-    </section>
-
-    <section class="project" id="project-02" style="--bg:#1a2a22">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-02/render-01.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-02/render-02.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">02</span>
-          <h2>CNC Router</h2>
-          <p class="proj-sub">3-Axis Router Build &middot; Fusion 360 &middot; GRBL &middot; 2023</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>Fusion 360</span><span>GRBL</span><span>Machining</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>Jun – Dec 2023</span></div>
-            <div><label>Role</label><span>Solo Build</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-03" style="--bg:#2a1a2a">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-03/render-01.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-03/render-02.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">03</span>
-          <h2>RC Vehicle</h2>
-          <p class="proj-sub">4WD Platform &middot; Custom Chassis &middot; 2023</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>CAD</span><span>3D Printing</span><span>Electronics</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>Mar – Aug 2023</span></div>
-            <div><label>Role</label><span>Solo Build</span></div>
-            <div><label>Status</label><span class="wip">In Progress</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-04" style="--bg:#2a2210">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-04/render-01.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">04</span>
-          <h2>PCB Design</h2>
-          <p class="proj-sub">Sensor Acquisition Board &middot; KiCad &middot; 2024</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>KiCad</span><span>Embedded C</span><span>Soldering</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>2024</span></div>
-            <div><label>Role</label><span>Solo</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-05" style="--bg:#142028">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-05/render-01.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">05</span>
-          <h2>3D Printer Mod</h2>
-          <p class="proj-sub">Motion System Upgrade &middot; Klipper &middot; 2023</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>Klipper</span><span>CAD</span><span>Wiring</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>2023</span></div>
-            <div><label>Role</label><span>Solo</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-06" style="--bg:#0f2a1a">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-06/render-01.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-06/render-02.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-06/render-03.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">06</span>
-          <h2>FRC Robot</h2>
-          <p class="proj-sub">FIRST Robotics Competition &middot; 2024 Season</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>SolidWorks</span><span>Machining</span><span>Teamwork</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>Jan – Apr 2024</span></div>
-            <div><label>Role</label><span>Mech Lead</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-07" style="--bg:#1e1a2e">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-07/render-01.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">07</span>
-          <h2>Simulation Tool</h2>
-          <p class="proj-sub">Dynamic System Simulation &middot; MATLAB &middot; Python &middot; 2024</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>MATLAB</span><span>Python</span><span>Simulink</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>2024</span></div>
-            <div><label>Role</label><span>Solo</span></div>
-            <div><label>Status</label><span class="wip">In Progress</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="project" id="project-08" style="--bg:#2a1818">
-      <div class="proj-inner">
-        <div class="proj-slider">
-          <div class="proj-slides">
-            <div class="proj-slide active"><img src="assets/images/project-08/render-01.png" alt=""/></div>
-            <div class="proj-slide"><img src="assets/images/project-08/render-02.png" alt=""/></div>
-          </div>
-          <button class="arrow arrow-l">&#8249;</button>
-          <button class="arrow arrow-r">&#8250;</button>
-          <div class="dots"></div>
-        </div>
-        <div class="proj-info">
-          <span class="proj-num">08</span>
-          <h2>Weld Fixture</h2>
-          <p class="proj-sub">Precision Fixturing &middot; GD&amp;T &middot; Steel Fabrication &middot; 2023</p>
-          <p class="proj-desc">Describe this project in a few sentences.</p>
-          <div class="tags">
-            <span>GD&amp;T</span><span>Welding</span><span>SolidWorks</span>
-          </div>
-          <div class="meta">
-            <div><label>Timeline</label><span>2023</span></div>
-            <div><label>Role</label><span>Lead</span></div>
-            <div><label>Status</label><span class="complete">Complete</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <footer class="site-footer">
-    <p>Your Name &middot; <a href="mailto:you@email.com">you@email.com</a> &middot; <a href="https://github.com/yourusername" target="_blank">GitHub</a> &middot; <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
+    <p>Matthew Smith &middot; <a href="mailto:you@uw.edu">you@uw.edu</a> &middot; <a href="https://github.com/yourusername" target="_blank">GitHub</a> &middot; <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></p>
   </footer>
 
   <script src="script.js"></script>
