@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matthew Smith — Résumé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens (mirrors main site dark palette) ── */
+    :root {
+      --bg:          #0d0d0d;
+      --surface:     #141414;
+      --surface-2:   #1c1c1c;
+      --border:      #2a2a2a;
+      --accent:      #e8e0d0;       /* warm off-white — hero/headings */
+      --accent-dim:  #9a9080;       /* muted labels */
+      --tag-bg:      #1e1e1e;
+      --tag-fg:      #b0a898;
+      --link:        #c8bfaf;
+      --red:         #c0392b;       /* subtle accent strip */
+      --mono:        'DM Mono', monospace;
+      --sans:        'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--accent);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV (matches main site) ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 52px;
+      background: rgba(13,13,13,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: .8rem;
+      letter-spacing: .12em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      color: var(--accent-dim);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+    /* ── PAGE SHELL ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 120px 2rem 80px;
+    }
+
+    /* ── HERO HEADER ── */
+    .resume-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .resume-header h1 {
+      font-family: var(--mono);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -.01em;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+
+    .resume-header .sub {
+      font-family: var(--mono);
+      font-size: .8rem;
+      color: var(--accent-dim);
+      letter-spacing: .12em;
+      margin-top: .6rem;
+    }
+
+    .contact-row {
+      display: flex; flex-wrap: wrap; gap: 1.4rem;
+      margin-top: 1.4rem;
+    }
+
+    .contact-row a, .contact-row span {
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--link);
+      text-decoration: none;
+      letter-spacing: .08em;
+    }
+    .contact-row a:hover { color: var(--accent); }
+
+    .dl-btn {
+      margin-left: auto;
+      align-self: flex-start;
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .5rem 1.1rem;
+      border: 1px solid var(--border);
+      color: var(--accent-dim);
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+    .dl-btn:hover { border-color: var(--accent-dim); color: var(--accent); }
+
+    /* ── SECTION BLOCK ── */
+    .section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      color: var(--accent-dim);
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── ENTRY CARD ── */
+    .entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: .2rem 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .entry:first-of-type { border-top: 1px solid var(--border); }
+
+    .entry-title {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1.3;
+    }
+
+    .entry-org {
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--accent-dim);
+      margin-top: .25rem;
+    }
+
+    .entry-role {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--tag-fg);
+      font-style: italic;
+      margin-top: .15rem;
+    }
+
+    .entry-meta {
+      text-align: right;
+      grid-row: 1 / 3;
+    }
+
+    .entry-date {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--accent-dim);
+      letter-spacing: .06em;
+      white-space: nowrap;
+    }
+
+    .entry-location {
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: #555;
+      margin-top: .2rem;
+    }
+
+    .entry-body {
+      grid-column: 1 / -1;
+      margin-top: .7rem;
+    }
+
+    .entry-body p {
+      font-size: .875rem;
+      color: #888;
+      line-height: 1.65;
+    }
+
+    .entry-body ul {
+      list-style: none;
+      padding: 0;
+      margin-top: .4rem;
+    }
+
+    .entry-body ul li {
+      font-size: .875rem;
+      color: #888;
+      line-height: 1.65;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: .35rem;
+    }
+    .entry-body ul li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--border);
+      font-family: var(--mono);
+    }
+
+    /* ── TAGS ── */
+    .tags {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-top: .8rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: .65rem;
+      letter-spacing: .08em;
+      color: var(--tag-fg);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      padding: .2rem .6rem;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .skill-cell {
+      background: var(--surface);
+      padding: .9rem 1rem;
+    }
+
+    .skill-cell .skill-cat {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .14em;
+      color: var(--accent-dim);
+      text-transform: uppercase;
+      margin-bottom: .45rem;
+    }
+
+    .skill-cell .skill-items {
+      font-size: .8rem;
+      color: #888;
+      line-height: 1.7;
+    }
+
+    /* ── REFERENCES ── */
+    .refs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .ref-card {
+      background: var(--surface);
+      padding: 1.1rem 1.2rem;
+    }
+
+    .ref-name {
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .ref-title {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--accent-dim);
+      margin-top: .3rem;
+      line-height: 1.5;
+    }
+
+    .ref-contact {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: #555;
+      margin-top: .5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: #444;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+      max-width: 860px; margin: 0 auto;
+    }
+
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { color: var(--accent-dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      main { padding: 90px 1rem 60px; }
+      .entry { grid-template-columns: 1fr; }
+      .entry-meta { text-align: left; grid-row: auto; }
+      .contact-row { flex-direction: column; gap: .6rem; }
+      .dl-btn { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://matthasus.github.io/Engineering-Portfolio/" class="nav-logo">MS</a>
+    <ul class="nav-links">
+      <li><a href="https://matthasus.github.io/Engineering-Portfolio/">Portfolio</a></li>
+      <li><a href="#" class="active">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ── HEADER ── -->
+    <header class="resume-header">
+      <h1>Matthew Smith</h1>
+      <p class="sub">Engineering Undeclared · University of Washington · Class of 2030</p>
+      <div class="contact-row">
+        <span>Maple Valley, WA 98038</span>
+        <a href="mailto:0smith0matthew0@gmail.com">0smith0matthew0@gmail.com</a>
+        <a href="tel:2066694718">206-669-4718</a>
+        <a href="https://matthasus.github.io/Engineering-Portfolio/" target="_blank">Portfolio ↗</a>
+        <a class="dl-btn" href="Matthew_Smith___Resume_2026.pdf" download>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M6 1v7M3 6l3 3 3-3M1 10h10"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+    </header>
+
+    <!-- ── EDUCATION ── -->
+    <section class="section" id="education">
+      <p class="section-label">Education</p>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">University of Washington — College of Engineering</div>
+          <div class="entry-org">Undeclared Engineering · Focus in Mechanical Engineering · GPA: 4.0</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Oct 2026 – Jun 2030</div>
+          <div class="entry-location">Seattle, WA</div>
+        </div>
+        <div class="entry-body">
+          <div class="tags">
+            <span class="tag">Chemistry 110/113</span>
+            <span class="tag">English 131/111</span>
+            <span class="tag">GPA 4.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Tahoma Senior High School</div>
+          <div class="entry-org">GPA: 3.86 · SAT Math: 750</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Sep 2022 – Jun 2026</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>AP Scholar With Distinction — score of 3+ on 5+ exams, average 3.5+ across all AP exams</li>
+            <li>Completed 17 CiHS/AP courses throughout high school career</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">AP Scholar w/ Distinction</span>
+            <span class="tag">17 CiHS/AP Courses</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORK / VOLUNTEER ── -->
+    <section class="section" id="experience">
+      <p class="section-label">Work &amp; Volunteer Experience</p>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">1-800-GOT-JUNK — Repurpose Center</div>
+          <div class="entry-role">Retail Operations, Marketing &amp; Management Intern</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Jun 2026 – Aug 2026</div>
+          <div class="entry-location">Wilsonville, WA</div>
+        </div>
+        <div class="entry-body">
+          <p>Curated marketing materials including a revamped website and commercial photography for the Repurpose Center's upcycling retail operation. Gained hands-on insight into sustainable business practices and strategies for minimizing the environmental impact of waste.</p>
+          <div class="tags">
+            <span class="tag">Marketing</span>
+            <span class="tag">Photography</span>
+            <span class="tag">Sustainability</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Fireworks Gallery — University Village</div>
+          <div class="entry-role">Customer Service &amp; Restocker</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Dec 2023 – Dec 2025</div>
+          <div class="entry-location">Seattle, WA</div>
+        </div>
+        <div class="entry-body">
+          <p>Seasonal winter employment at a high-traffic jewelry gallery. Memorized a continuously changing floor layout to restock efficiently, assisted customers with jewelry selections, and filled in as cashier during peak holiday periods.</p>
+          <div class="tags">
+            <span class="tag">Customer Service</span>
+            <span class="tag">Retail</span>
+            <span class="tag">Teamwork</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">National Honors Society — Tahoma Senior High</div>
+          <div class="entry-role">Volunteering Member</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Sep 2024 – Jun 2026</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>Maintained 30+ volunteer service hours per year</li>
+            <li>Organized WA Girls Gen 2025 — an FRC off-season event for gender minorities in STEM, hosting 27 teams and approximately 1,000 attendees</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Leadership</span>
+            <span class="tag">Event Coordination</span>
+            <span class="tag">STEM Outreach</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS / ACTIVITIES ── -->
+    <section class="section" id="activities">
+      <p class="section-label">Skills &amp; Activities</p>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">FIRST Robotics Competition — Team 2046 Bear Metal</div>
+          <div class="entry-role">Elected President / Team Captain · Robot Driver · Project Manager</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Sep 2022 – Jun 2026</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>Four-year progression from Design team (CAD for competition robots) to team-wide project management and leadership</li>
+            <li>Developed underclassmen leadership training programs, created new competition roles to broaden member involvement, and expanded community outreach to grow program awareness</li>
+            <li>Won 10 competitions including a Worlds divisional win; earned 14 judged awards at local, districts/states, and worlds levels</li>
+            <li>Finished each season in the top 75 of 4,000+ teams by EPA ranking</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">SolidWorks CAD</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Mechanical Design</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">FRC</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Tahoma Rocketry Club — THS STEM Club</div>
+          <div class="entry-role">Founder &amp; Club Treasurer</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Sep 2023 – May 2025</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>Founded club from the ground up and managed ASB funding cycle</li>
+            <li>Grew membership 80% over two years; mentored members in propulsion fundamentals and F-Class rocket design ahead of spring launches</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Propulsion</span>
+            <span class="tag">Rocketry</span>
+            <span class="tag">Club Leadership</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Cascadia Combat Robotics</div>
+          <div class="entry-role">Founder &amp; Mechanical Captain</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Jun 2024 – Present</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>Founded a 7-member combat robotics team registered under the Robot Combat League</li>
+            <li>Engineered and fabricated two 3 lb robots — Bonanza &amp; Rainier — competing across three events in Washington during Spring/Summer seasons</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Fabrication</span>
+            <span class="tag">Combat Robotics</span>
+            <span class="tag">Mechanical Design</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Hawks Family Martial Arts</div>
+          <div class="entry-role">Competition Team Participant — Taekwondo &amp; Karate</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Jun 2019 – Apr 2024</div>
+          <div class="entry-location">Maple Valley, WA</div>
+        </div>
+        <div class="entry-body">
+          <ul>
+            <li>Won Gold in USTKD WA State 2023 Junior Featherweight sparring division</li>
+            <li>Trained approximately five years to Blue-Brown belt in both Taekwondo and Karate; competed in sparring and poomsae at three competitions</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Taekwondo</span>
+            <span class="tag">Karate</span>
+            <span class="tag">Competition</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div>
+          <div class="entry-title">Independent Recreation — Nature &amp; Photography</div>
+          <div class="entry-role">Trail Hiker · Film &amp; Digital Photographer</div>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">Oct 2024 – Present</div>
+          <div class="entry-location">Washington State</div>
+        </div>
+        <div class="entry-body">
+          <p>Completed challenging Washington State hikes while building a growing nature photography portfolio documenting people, landscapes, and wildlife. Also explores film photography as a creative medium.</p>
+          <div class="tags">
+            <span class="tag">Photography</span>
+            <span class="tag">Film Photography</span>
+            <span class="tag">Outdoors</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS SUMMARY ── -->
+    <section class="section" id="skills">
+      <p class="section-label">Technical Skills</p>
+      <div class="skills-grid">
+        <div class="skill-cell">
+          <p class="skill-cat">CAD &amp; Design</p>
+          <p class="skill-items">SolidWorks<br>CAD Modeling<br>Mechanical Design<br>Prototyping</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Fabrication</p>
+          <p class="skill-items">CNC Machining<br>Billet Aluminum<br>Robot Fabrication<br>3D Printing</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Robotics</p>
+          <p class="skill-items">FRC Competition<br>Combat Robotics<br>Drivetrain Design<br>Subsystem Integration</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Leadership</p>
+          <p class="skill-items">Team Captain<br>Project Management<br>Event Coordination<br>Mentorship</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Creative</p>
+          <p class="skill-items">Commercial Photography<br>Film Photography<br>Marketing Materials<br>Web Content</p>
+        </div>
+        <div class="skill-cell">
+          <p class="skill-cat">Science</p>
+          <p class="skill-items">Propulsion &amp; Rocketry<br>Chemistry<br>Mechanical Analysis<br>Structural Design</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── REFERENCES ── -->
+    <section class="section" id="references">
+      <p class="section-label">References</p>
+      <div class="refs-grid">
+        <div class="ref-card">
+          <p class="ref-name">Namit Goyal</p>
+          <p class="ref-title">Bear Metal Alumni<br>University of Washington</p>
+          <p class="ref-contact">425-465-8829<br>Goyalnamit2005@gmail.com</p>
+        </div>
+        <div class="ref-card">
+          <p class="ref-name">Darren Collins</p>
+          <p class="ref-title">Robotics Teacher &amp; Head Coach<br>Tahoma Senior High School</p>
+          <p class="ref-contact">425-413-3290<br>dcollins@tahomasd.us</p>
+        </div>
+        <div class="ref-card">
+          <p class="ref-name">Johnathan Neil</p>
+          <p class="ref-title">Science Department Head<br>UW Chemistry Teacher<br>Tahoma Senior High School</p>
+          <p class="ref-contact">425-413-3290<br>jneil@tahomasd.us</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Matthew Smith · 0smith0matthew0@gmail.com · 206-669-4718</span>
+    <span>
+      <a href="https://matthasus.github.io/Engineering-Portfolio/">Portfolio</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/matthasus" target="_blank">GitHub</a>
+    </span>
+  </footer>
+
+</body>
+</html>
