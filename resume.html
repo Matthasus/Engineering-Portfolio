@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matthew Smith — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .resume-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: calc(var(--header-h) + 3rem) 2rem 4rem;
+    }
+
+    .resume-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .resume-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0 0 0.25rem;
+      line-height: 1.1;
+    }
+
+    .resume-title {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+    }
+
+    .resume-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+    .resume-contact a { color: var(--text-secondary); transition: color 0.2s; }
+    .resume-contact a:hover { color: var(--accent); }
+
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.25rem;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 5px;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+      align-self: center;
+    }
+    .pdf-btn:hover { background: var(--accent-dark); color: #fff; }
+
+    .resume-section { margin-bottom: 2rem; }
+
+    .resume-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-entry { margin-bottom: 1.4rem; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.1rem;
+    }
+
+    .entry-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .entry-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+    }
+
+    .entry-sub {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+
+    .entry-loc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .entry-detail {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .entry-detail ul {
+      margin: 0.3rem 0 0 1.1rem;
+      padding: 0;
+    }
+    .entry-detail li { margin-bottom: 0.3rem; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+    .skill-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+      font-weight: 500;
+    }
+
+    .gpa-badge {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(200,168,75,0.15);
+      border: 1px solid rgba(200,168,75,0.3);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .ref-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.1rem;
+    }
+
+    .ref-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .ref-role {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .ref-contact {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .ref-contact a { color: var(--text-secondary); transition: color 0.2s; }
+    .ref-contact a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      .resume-header { flex-direction: column; }
+      .pdf-btn { align-self: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="site-logo" href="index.html">MS</a>
+    <nav class="proj-nav">
+      <a href="index.html">← Back to Portfolio</a>
+    </nav>
+    <a class="resume-btn" href="index.html">Portfolio</a>
+    <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">← Back to Portfolio</a>
+  </div>
+
+  <main class="resume-page">
+
+    <!-- ── HEADER ── -->
+    <div class="resume-header">
+      <div>
+        <h1 class="resume-name">Matthew Smith</h1>
+        <p class="resume-title">Mechanical Engineering · University of Washington</p>
+        <div class="resume-contact">
+          <span>Maple Valley, WA 98038</span>
+          <a href="mailto:0smith0matthew0@gmail.com">0smith0matthew0@gmail.com</a>
+          <a href="tel:2066694718">206-669-4718</a>
+        </div>
+      </div>
+      <a class="pdf-btn" href="assets/matthew-smith-resume.pdf" target="_blank">↓ Download PDF</a>
+    </div>
+
+    <!-- ── EDUCATION ── -->
+    <div class="resume-section">
+      <div class="resume-section-title">Education</div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">University of Washington — College of Engineering</span>
+          <span class="entry-date">Oct 2026 – Jun 2030</span>
+        </div>
+        <div class="entry-sub">Undeclared Engineering, Focus in Mechanical Engineering <span class="gpa-badge">GPA 4.0</span></div>
+        <div class="entry-loc">Seattle, WA</div>
+        <div class="entry-detail">
+          <span class="skill-group-title">Relevant Coursework</span>
+          <div class="skill-tags" style="margin-top:0.35rem">
+            <span class="skill-tag">Chemistry 110/113</span>
+            <span class="skill-tag">English 131/111</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Tahoma Senior High School</span>
+          <span class="entry-date">Sep 2022 – Jun 2026</span>
+        </div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          AP Scholar With Distinction (score of 3+ on 5+ exams &amp; avg 3.5+ across all exams) · 17 CiHS/AP courses passed · GPA: 3.86 · SAT Math: 750
+        </div>
+      </div>
+    </div>
+
+    <!-- ── WORK / VOLUNTEER ── -->
+    <div class="resume-section">
+      <div class="resume-section-title">Work &amp; Volunteer Experience</div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">1-800-GOT-JUNK</span>
+          <span class="entry-date">Jun 2026 – Aug 2026</span>
+        </div>
+        <div class="entry-sub">Retail Operations, Marketing &amp; Management Intern</div>
+        <div class="entry-loc">Wilsonville, WA</div>
+        <div class="entry-detail">
+          Curated marketing materials including a revamped website and commercial photography for the Repurpose Center, Wilsonville location. Engaged with customers and learned about the upcycling business and strategies for minimizing environmental impact of waste.
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Fireworks Gallery — University Village</span>
+          <span class="entry-date">Dec 2023 – Dec 2025</span>
+        </div>
+        <div class="entry-sub">Customer Service &amp; Restocker</div>
+        <div class="entry-loc">Seattle, WA</div>
+        <div class="entry-detail">
+          Seasonal employment in a high-traffic retail jewelry environment. Memorized fluctuating floor layout for rapid restocking, assisted customers with jewelry purchases, and filled in as cashier during peak holiday traffic.
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">National Honors Society — Tahoma Senior High School</span>
+          <span class="entry-date">Sep 2024 – Jun 2026</span>
+        </div>
+        <div class="entry-sub">Volunteering Member</div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          Met 30+ service hours per year. Organized WA Girls Gen 2025, an FRC off-season event for gender minorities in STEM, hosting 27 teams and approximately 1,000 attendees.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SKILLS & ACTIVITIES ── -->
+    <div class="resume-section">
+      <div class="resume-section-title">Skills &amp; Activities</div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">FIRST Robotics Competition — Team 2046 Bear Metal</span>
+          <span class="entry-date">Sep 2022 – Jun 2026</span>
+        </div>
+        <div class="entry-sub">Elected President / Team Captain · Robot Driver · Project Manager</div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          <ul>
+            <li>Participated in a 4-year robotics program that inspired pursuit of engineering as a career. Progressed from a technical CAD design role to project management and team leadership.</li>
+            <li>Developed underclassmen leadership training, created new competition roles to expand member involvement, and grew community outreach to increase program awareness.</li>
+            <li>Won 10 competitions including a worlds divisional win; earned 14 judged awards at local, district/state, and worlds levels; finished each season in the top 75 of ~4,000 teams by EPA ranking.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Tahoma Rocketry Club</span>
+          <span class="entry-date">Sep 2023 – May 2025</span>
+        </div>
+        <div class="entry-sub">Founder &amp; Club Treasurer</div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          <ul>
+            <li>Founded club and managed ASB funding. Grew membership 80% over 2 years.</li>
+            <li>Mentored members in propulsion theory and F-Class rocket design for spring launches.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Robot Combat League — Cascadia Combat Robotics</span>
+          <span class="entry-date">Jun 2024 – Present</span>
+        </div>
+        <div class="entry-sub">Founder &amp; Mechanical Captain</div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          <ul>
+            <li>Founded a 7-member combat robotics team. Engineered and fabricated two 3lb robots — <em>Bonanza</em> and <em>Rainier</em>.</li>
+            <li>Competed across 3 events in Washington State in Spring/Summer.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Hawks Family Martial Arts</span>
+          <span class="entry-date">Jun 2019 – Apr 2024</span>
+        </div>
+        <div class="entry-sub">Competition Team Participant — Taekwondo &amp; Karate</div>
+        <div class="entry-loc">Maple Valley, WA</div>
+        <div class="entry-detail">
+          Won Gold at USTKD WA State 2023 Jr. featherweight sparring. Trained ~5 years to Blue-Brown belt in both disciplines. Competed in sparring and poomsae at 3 tournaments.
+        </div>
+      </div>
+
+      <div class="resume-entry">
+        <div class="entry-header">
+          <span class="entry-title">Independent Recreation</span>
+          <span class="entry-date">Oct 2024 – Present</span>
+        </div>
+        <div class="entry-sub">Nature Photographer &amp; Trail Hiker</div>
+        <div class="entry-loc">Washington State</div>
+        <div class="entry-detail">
+          Completed difficult Washington hikes while building a nature photography portfolio documenting people, landscapes, and wildlife. Also exploring film photography.
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TECHNICAL SKILLS ── -->
+    <div class="resume-section">
+      <div class="resume-section-title">Technical Skills</div>
+      <div class="skills-grid">
+        <div>
+          <div class="skill-group-title">CAD / Design</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Autodesk Inventor</span>
+            <span class="skill-tag">Onshape</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Robotics</div>
+          <div class="skill-tags">
+            <span class="skill-tag">FRC</span>
+            <span class="skill-tag">Combat Robotics</span>
+            <span class="skill-tag">Robot Driving</span>
+          </div>
+        </div>
+        <div>
+          <div class="skill-group-title">Other</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Rocket Design</span>
+            <span class="skill-tag">Photography</span>
+            <span class="skill-tag">Marketing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── REFERENCES ── -->
+    <div class="resume-section">
+      <div class="resume-section-title">References</div>
+      <div class="ref-grid">
+        <div class="ref-card">
+          <div class="ref-name">Namit Goyal</div>
+          <div class="ref-role">Bear Metal Alumni · University of Washington</div>
+          <div class="ref-contact">
+            <a href="tel:4254658829">425-465-8829</a>
+            <a href="mailto:Goyalnamit2005@gmail.com">Goyalnamit2005@gmail.com</a>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Darren Collins</div>
+          <div class="ref-role">Robotics Teacher &amp; Head Coach · Tahoma Senior High School</div>
+          <div class="ref-contact">
+            <a href="tel:4254133290">425-413-3290</a>
+            <a href="mailto:dcollins@tahomasd.us">dcollins@tahomasd.us</a>
+          </div>
+        </div>
+        <div class="ref-card">
+          <div class="ref-name">Johnathan Neil</div>
+          <div class="ref-role">Science Dept. Head &amp; UW Chemistry Teacher · Tahoma Senior High School</div>
+          <div class="ref-contact">
+            <a href="tel:4254133290">425-413-3290</a>
+            <a href="mailto:jneil@tahomasd.us">jneil@tahomasd.us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Matthew Smith &middot; <a href="mailto:0smith0matthew0@gmail.com">0smith0matthew0@gmail.com</a> &middot; 206-669-4718</p>
+  </footer>
+
+  <script>
+    document.getElementById('burger').addEventListener('click', () => {
+      document.getElementById('mobileNav').classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
